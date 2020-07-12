@@ -1,0 +1,21 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodejs index.js",
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelCof/nodeFirst.git"
+  },
+  "author": "Pavel Cof",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelCof/nodeFirst/issues"
+  },
+  "homepage": "https://github.com/PavelCof/nodeFirst#readme"
+
+}

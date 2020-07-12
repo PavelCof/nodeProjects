@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал выполнения программы противопожарной защиты ММ</title>
+    <!-- <script src="scripts/main.js"></script> -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav id="header_nav">
+            <ul>
+                <div class="header_logo"><img src="imgs/logo.png" alt="MosMetro"/> </div>
+                <li class="header_menu"><span>Подать данные</span> 
+                    <ul>
+                        <li>Подать план</li>
+                        <li>Подать факт</li>
+                        <li>Подать предписание</li>
+                        <li>Отчет по предписанию</li>
+                    </ul>
+                </li>
+                <li class="header_menu"><span>Отчеты</span>
+                    <ul>
+                        <li>Итоговые отчеты</li>
+                        <li>Настраиваемые отчеты</li>
+                    </ul>
+                </li>
+                <li class="header_menu"><span>Справочники</span>
+                    <ul>
+                        <li>Виды работ</li>
+                        <li>Способы работ</li>
+                        <li>Противопожарные системы</li>
+                        <li>Типы систем / устройств</li>
+                        <li>Названия объектов защиты</li>
+                        <li>Уровни / помещения</li>
+                        <li>Подразделения</li>
+                        <li>Виды финансирования</li>
+                    </ul>
+                </li>
+                <li class="header_exit"><span>Выход</span></li>
+            </ul>
+        </nav>
+        <nav id="header_navline">
+            <ul>
+                <li class="header_line"><span>ЕДЦ</span> </li>
+                <li class="header_lineV"><span>
+                    <svg width="7" height="15" viewBox="0 0 7 15" fill="none" >
+                        <path class="header_v" d="M1 1L6 7.34146L1 14" />
+                        </svg>
+                </span> </li>
+                <li class="header_line"><span>Программа противопожарной защиты</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <!-- <img id=slides src="imgs/slide.png" width="100%"> -->
+         <div id="container">
+            <form  id=f1  action>
+             <div class="form_otchet_bottom">
+                    <div class=column>
+                            <div class=row> <span>Выбор периода c </span><input type="date" name="date_from" id="date_from" ><span> до </span><input type="date" name="date_to" id="date_to" ></div>
+                            <div class=row > <span class=link>Текущий месяц</span> <span>|</span>  <span class=link>Текущий год </span> <span>|</span> <span class=link>Предыдущий год </span>  </div>
+                    </div>
+                    <div class=column>
+                        <div class=rowsb> <a class='button_red' id='button_red_sub'>&nbsp;Просмотреть</a></div>
+                    </div>
+                    <!-- <div class=column_line>
+                            <div class=rowlitle><span> </span></div>
+                    </div> -->
+                    <div id="findFilters">
+                    <div class=column_line_white>
+                        <div class=rows3> <span>Вид работ</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check" checked>
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div> 
+                        </div>
+                        <div class=rows3> <span>Способ работ</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class=column_line_white>
+                        <div class=rows3> <span>Системы защиты</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div> 
+                        </div>
+                        <div class=rows3> <span>Описание</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class=column_line_white>
+                        <div class=rows3> <span>Финансирование</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div> 
+                        </div>
+                        <div class=rows3> <span>Объекты защиты</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class=column_line_white>
+                        <div class=rows3> <span>Подразделение</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check" checked>
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div> 
+                        </div>
+                        <div class=rows3> <span>Срок</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class=column>
+                        <div class=rows31> <span>№ контракта</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div> 
+                        </div>
+                        <div class=rows31> <span>Стоимость с учетом НДС</span>
+                            <div class="toggle"> 
+                                <input type="checkbox" class="check">
+                                <b class="b switch"></b>
+                                <b class="b track"></b>
+                            </div>   
+                        </div>    
+                    </div>   
+                    <div class=column>
+                        <div class=rows3> 
+                            <svg width="18" height="18" id='arrow' style="margin-left:55px;" viewBox="0 0 18 18" fill="none" >
+                                <g filter="url(#filter0_d)">
+                                     <circle cx="9" cy="7" r="7" transform="rotate(-180 9 7)" fill="white"/>
+                                </g>
+                                <path d="M6 7L10.5 3.5359L10.5 10.4641L6 7Z" fill="#DA2032"/>
+                                <defs>
+                                    <filter id="filter0_d" x="0" y="0" width="18" height="18" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                        <feOffset dy="2"/>
+                                        <feGaussianBlur stdDeviation="1"/>
+                                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </div> 
+                    </div>
+                </div>
+              </div>
+            </form>     
+                <!--
+                    <div class=column>
+                            <div class=rows3> <span> Вид работ </span><input type="text" name="line" id="line" ></div>
+                            <div class=rows3> <span> </span><span> Объект защиты </span><input type="text" name="distance" id="distance" ></div>
+                    </div>
+
+                    <label class="switch switch_type2" role="switch">
+                        <input type="checkbox" class="switch__toggle">
+                        <span class="switch__label"></span>
+                    </label> 
+                -->
+
+<!--- поиск фильтры-->
+         <form  id=f2  action>
+                <div class="form_otchet_fils">
+                    <div class=column>
+                        <div class=rows5> <span> Фильтр </span></div>
+                        <div class=rows5> <span> Дота создания </span></div>
+                        <div class=rows5 style="width: 165px; ">   
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+
+                        <input type="text" name="distance" id="distance" placeholder="Выбрать дату"></div>
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Номер записи </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder="Ввести"></div>
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Тип объекта защиты </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder="Выбрать объект" ></div>
+                    
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Объект защиты </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder="Выбрать объект" ></div>
+
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Наименование объекта защиты </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder="Выбрать объект" ></div>
+                    
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Подразделение </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder=""></div>
+                </div>
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Вид работ </span> </div>
+                    <div class=rows5> <input type="text" name="distance"  id="distance" placeholder="Ввести"></div>
+                </div>
+
+                <div class=column>
+                    <div class=rows5> <span>  </span></div>
+                    <div class=rows5> <span> Система защиты </span> </div>
+                    <div class=rows5>  <input type="text" name="distance"  id="distance"  placeholder="Ввести"></div>
+                </div>
+                    <div class=column>
+                            <div class=rows5><span> </span> </div>
+                            <div class=rows5><span> </span> </div>
+                            <div class=rowb5> <a>&nbsp;Поиск</a></div>
+                    </div>
+                </div>
+            </form>     
+
+<!--- фактических работах-->
+        <h3 id=f31>Введите данные о фактических работах</h3><br>
+            <form  id=f3  action>
+                <div class="form_otchet" >
+                    <div class=column>
+                            <div class=rows> <p> Вид работ </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Способ работ </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                            <div class=rows> <p>Тип объекта защиты </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Объект защиты </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                            
+                    </div>
+                    <div class=column>
+                            <div class=rows> <p>Противопожарные системы </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Тип системы / устройства</p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows> <p>Ответственное подразделение</p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                        <div class=rows> <p> Описание<br>  </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows> <p>№ УД  <br> </p><input type="text" name="line" class="f5_inp"  id="line" ></div>
+                        <div class=rows> <p> Финансирование </p><input type="text" name="distance" class="f5_inp"  id="distance" ></div>
+                    </div>
+                    <div class=column>
+                       
+                        <div class=rows_ch>  <span>Объединенный контракт</span> <input type="checkbox" name="distance" id="distance" ></div>
+                    </div>
+                </div>   
+
+                <div class="form_otchet_bottom">
+                    <div class=column>
+                            <div class=rows1> <span style="margin-left: 35px;"> Проект </span></div>
+                            <div class=rows1> <span> План </span><input type="text" name="line" id="line" ></div>
+                            <div class=rows1> <span> Факт </span><input type="text" name="distance" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows1> <span style="margin-left: 35px;"> СМР </span></div>
+                        <div class=rows1> <span> План </span><input type="text" name="line"  id="line" ></div>
+                        <div class=rows1> <span> Факт </span><input type="text" name="distance"  id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows1> <span style="margin-left: 35px;"> Всего </span></div>
+                        <div class=rows1> <span> План </span><input type="text" name="line"  id="line" ></div>
+                        <div class=rows1> <span> Факт </span><input type="text" name="distance"  id="distance" ></div>
+                    </div>
+                    <div class=column>
+                      
+                        <div class=rows1> <span style="margin-left: 35px;"> Дата начала работ </span></div>
+                        <div class=rows1> <span> План </span><input type="text" name="line"  id="line" ></div>
+                        <div class=rows1 style="width: 199px;"> <span> Факт </span><input type="text" name="distance"  id="distance" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+
+                    </div>
+                    <div class=column>
+                        
+                        <div class=rows1> <span style="margin-left: 35px;"> Дата окончания работ </span></div>
+                        <div class=rows1> <span> План </span><input type="text" name="line"  id="line" ></div>
+                        <div class=rows1 style="width: 199px;"> <span> Факт </span><input type="text" name="distance"  id="distance" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span style="margin-left: 7px;"> Дата подачи отчета </span></div>
+                        <div class=rows2 style="width: 165px;"> <input type="text" name="line"  id="line" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span>   </span></div>
+                        <div class=rows2> <span> № контракта </span> <input type="text" name="line"  id="line" ></div>
+                        <div class=rows2><span> Примечание </span><input type="text" name="line"  id="line" style="width: 300px;" ></div>
+                    </div>
+                </div>    
+                <div class="form_otchet_bottom">
+                    <div class=column>
+                        <div > <a class='button_red'  id='button_red_sub'>&nbsp;Добавить новую запись</a></div>
+                    </div>
+                    <div class="column_right">
+                        <div > <a class='button_red'  id='button_red_sub1'>&nbsp;Сохранить запись</a></div>
+                    </div>
+                </div>
+            </form> 
+    <!-- Введите данные о планируемых работах       -->
+            <h3 id=f51>Введите данные о планируемых работах</h3><br>
+            <form  id=f5  action>
+                <div class="form_otchet" >
+                    <div class=column>
+                            <div class=rows> <p> Вид работ </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Способ работ </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                            <div class=rows> <p>Тип объекта защиты </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Объект защиты </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                           
+                    </div>
+                    <div class=column>
+                            <div class=rows> <p>Противопожарные системы </p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                            <div class=rows> <p> Тип системы / устройства</p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows> <p>Ответственное подразделение</p><input type="text" name="line" class="f5_inp" id="line" ></div>
+                        <div class=rows> <p> Описание<br>  </p><input type="text" name="distance" class="f5_inp" id="distance" ></div>
+                    </div>
+                    <div class=column>
+                        <div class=rows> <p>№ УД  <br> </p><input type="text" name="line" class="f5_inp"  id="line" ></div>
+                        <div class=rows> <p> Финансирование </p><input type="text" name="distance" class="f5_inp"  id="distance" ></div>
+                    </div>
+                    <div class=column>
+                       
+                        <div class=rows_ch>  <span>Объединенный контракт</span> <input type="checkbox" name="distance" id="distance" ></div>
+                    </div>
+                </div>   
+
+                <div class="form_otchet_bottom">
+                    <div class=column>
+                            <div class=rows2> <span tyle="margin-left: 7px;"> Проект </span></div>
+                            <div class=rows2> <input type="text" name="line" id="line" ></div>
+                           
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span tyle="margin-left: 7px;"> СМР </span></div>
+                        <div class=rows2><input type="text" name="line"  id="line" ></div>
+                     
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span tyle="margin-left: 7px;"> Всего </span></div>
+                        <div class=rows2> <input type="text" name="line"  id="line" ></div>
+                       
+                    </div>
+                    <div class=column>
+                      
+                        <div class=rows2> <span tyle="margin-left: 7px;"> Дата начала работ </span></div>
+                        <div class=rows2> <input type="text" name="line"  id="line" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+                      
+
+                    </div>
+                    <div class=column>
+                        
+                        <div class=rows2> <span tyle="margin-left: 7px;"> Дата окончания работ </span></div>
+                        <div class=rows2> <input type="text" name="line"  id="line" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span style="margin-left: 7px;"> Дата подачи отчета </span></div>
+                        <div class=rows2> <input type="text" name="line"  id="line" >
+                            <svg width="35" height="31" viewBox="0 0 35 31" fill="none"  style="display: inline; position:relative; float:right;">
+                                <g filter="url(#filter0_di)">
+                                    <rect x="4" width="26.0547" height="23" rx="5" fill="#CC3333"/>
+                                </g>
+                            <rect x="9" y="3" width="16" height="17" fill="url(#pattern0)"/>
+                                <defs>
+                                    <filter id="filter0_di" x="0" y="-2" width="34.0547" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dx="2" dy="-2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                                    </filter>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="translate(-0.03125) scale(0.0166016 0.015625)"/>
+                                    </pattern>
+                                    <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVR4nO2b7XHUMBCGF4b/mAqggxwVABVgKuDowB0QOnAJRwWYDpIOfB1AB6aCYwSrRGhf68MbczlLz4wm5z2tY722VivJ9+R0OlHJPFW0/RUR/SAio+ANETWixjzGd1zo27Cv+d9vxbe5mCdgYTmc/qXLOE9/Jl9RtE+Af2dS2Z3JV6AR4LHgC1KcAJOwZPAMVG1Y1SZw8gYo33JAi7GGbxu4VsuI6vjD4DURfRau2+AXEfXcRijAgYg+brTxLl+JaG+PrQDmEfomqm6Xd7a72iC4L6jxxDf8D1YAP6My/eW1eUIC5dbz+R6o6xff9wuog8oLIvqZ6ftJNN8JpFaA516FnqNmDrn1lzBxCpzDgUWCbCEPUFEFEJZ0Bq9mSiJjOXjHOd2ndz4fwXVkgTLBnAuZeFJ0s0CAiYNRrq9p8AfOCn0hs9EIQMoLGBR3T3XXXWoMEJbCqAIIS2EUL4BmFNi5kwqPyRuvLWbo6oT1nh4sWsR8Bk0ars0D3gjrPSMY37uEBZdr7zjFZ7EAl9AFcic/WVQBhKUwLkEA/fZXAE0Q7GYiPXEkR4FpiDQI5fi9s0yPQD7JaAQYI41BLPGZAsOtmhoDhKUwNAL0vL8/V9CmZTdT1xb0qLegnltCWWIUjQCogS4oaCFb7Jwxn81vj9dEaE2qAMKSDkp0XMRe/IzNBZ0z5vPgL0ik0i2IwH0ge5xj5D2+VahdgP/6O67FYLuAGWpeZjZ6H3ivYOLv/P65i3SBDsQBuwM0N94jn2Q0MWAfWRLbgSWxNuLTgsaY87wXNcM+ydQYICyFUQUQlsLQJkJo+koc/dGef2gEmPt+DL3jc+4lsdzoO4GNjzV8kim+C1QBhKUwqgDCUhhVAGH5SxuYfV0aTSBfmc0DrjiRebD38c5Iy+1xuVtptgIMYJp6BRy3wl2W6v5kZtxwg12O6PcCxLu2R1F9W9z6u9Pox9MtK7Tqiwn/kdGZnIkJGhKgKMrOA4joN9TjccSp0UONAAAAAElFTkSuQmCC"/>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span> № контракта </span></div>
+                        <div class=rows2> <span>  </span> <input type="text" name="line"  id="line" ></div>
+                      
+                    </div>
+                    <div class=column>
+                        <div class=rows2> <span>Примечание </span></div>
+                        <div class=rows2> <span> </span> <input type="text" name="line"  id="line" style="width: 300px;"></div>
+                    </div>
+                </div>    
+                <div class="form_otchet_bottom">
+                    <div class=column>
+                        <div > <a class='button_red'  id='button_red_sub'>&nbsp;Добавить новую запись</a></div>
+                    </div>
+                    <div class="column_right">
+                        <div > <a class='button_red'  id='button_red_sub1'>&nbsp;Сохранить запись</a></div>
+                    </div>
+                </div>
+            </form>
+        </div> 
+        <div id="container_info">
+            <h3>Противопожарные системы</h3>
+            <form  id=info  action>
+                <div class="form_info_bottom">
+                      <div > <a class='button_brey'  id='button_brey'>&nbsp;Выгрузить справочник</a></div>
+                      <table class="form_table">
+                            <tr>
+                               <th></th> <th class="t_name">Текущее название</th> <th width="255px">Новое наименование</th><th >Включить/ отключить запись</th><th> </th>
+                            </tr>
+                            <tr>
+                                <td class="group">+</td> <td class="t_name">Система предупреждения пожаров</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td><td ><input type="checkbox" name="distance" id="distance" ></td><td><a class='button_brey'  id='button_brey_add' style="margin-left:0px ;">&nbsp;Добавить</a></td>
+                             </tr>
+
+                             <tr>
+                                <td></td><td>Устройства эвакуационных путей</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                             <tr>
+                                <td></td><td>Пожарная автоматика</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                             <tr>
+                                <td></td> <td>Система автоматического пожаротушения</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                             <tr>
+                                <td></td><td>Первичные средства пожаротушения</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                             <tr>
+                                <td></td><td>Система противодымной защиты</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                             <tr>
+                                <td></td><td>Средства индивидуальной защиты</td> <td><input type="text" name="distance" class="f5_inp" id="distance"></td> <td><input type="checkbox" name="distance" id="distance" ></td><td></td>
+                             </tr>
+                      </table>
+                      <div class="form_otchet_bottom">
+                        <div class=column>
+                            <div > <a class='button_red'  id='button_red_sub'>&nbsp;Добавить новый</a></div>
+                        </div>
+                        <div class="column_right">
+                            <div > <a class='button_red'  id='button_red_sub1'>&nbsp;Сохранить</a></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="container_table">
+            <!--  -->
+                <table>
+                    <tr>
+                        <th rowspan="3">Номер тикета</th>
+                        <th rowspan="3">№ УД</th>
+                        <th rowspan="3">Виды работ</th>
+                        <th rowspan="3" >Способ работ</th>
+                        <th rowspan="2" colspan="2">Системы противопожарной защиты</th>
+                        <th rowspan="3">Описание</th>
+                        <th rowspan="3">Финансирование</th>
+                        <th rowspan="2" colspan="3">Объекты защиты</th>
+                        <th rowspan="3">Подразделение</th>
+                        <th colspan="4"  >Срок</th>
+                        <th rowspan="3">№ контракта</th>
+                        <th colspan="6">Стоимость с учетом НДС (в тыс. руб.)</th>
+                        <th colspan="4" >Выполнение</th>
+                        <th rowspan="3">Примечание</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Дата начала работ</th>
+                        <th colspan="2">Дата окончания работ</th>
+                        <th colspan="2">Проект</th>
+                        <th colspan="2">СМР</th>
+                        <th colspan="2">Всего</th>
+                        <th colspan="2">Отчет на дату выполнения</th>
+                        <th colspan="2">Освоено средств, %</th>
+                          
+                    </tr>
+                    <tr>
+                        <th>Противопожарные системы</th>
+                        <th>Типы систем/ устройства</th>
+                        <th>Типы объекта защиты</th>
+                        <th>Объект</th>
+                        <th>Уровень/помещение</th>
+                        
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>
+                        <th >План</th>
+                        <th >Факт</th>                           
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>378/17</td>
+                        <td>Поставка (приобретение)</td>
+                        <td>Подрядный метод</td>
+                        <td>Первичные средства пожаротушения</td>
+                        <td>Противопожарные преграды, водяные завесы </td>
+                        <td>Вписано описание</td>
+                        <td>Активы</td>
+                        <td>Сооружение</td>
+                        <td>Электродепо Северное</td>
+                        <td>Сооружение</td>
+                        <td>Служба Т</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>Примечание</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>378/17</td>
+                        <td>Поставка (приобретение)</td>
+                        <td>Подрядный метод</td>
+                        <td>Первичные средства пожаротушения</td>
+                        <td>Противопожарные преграды, водяные завесы </td>
+                        <td>Вписано описание</td>
+                        <td>Активы</td>
+                        <td>Сооружение</td>
+                        <td>Электродепо Северное</td>
+                        <td>Сооружение</td>
+                        <td>Служба Т</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>оваыолрловыарг шавылгора выорывалор  выаолроаыврыв лоролро</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>378/17</td>
+                        <td>Поставка (приобретение)</td>
+                        <td>Подрядный метод</td>
+                        <td>Первичные средства пожаротушения</td>
+                        <td>Противопожарные преграды, водяные завесы </td>
+                        <td>Вписано описание</td>
+                        <td>Активы</td>
+                        <td>Сооружение</td>
+                        <td>Электродепо Северное</td>
+                        <td>Сооружение</td>
+                        <td>Служба Т</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>02.05.2020</td>
+                        <td>30.08.2020</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>Примечание</td>
+                    </tr>
+                </table>
+               
+                <div class=rowsb> <span class='button_red' id='button_red_sub'>&nbsp;Сохранить</span></div>
+        </div> 
+    </section>
+
+    <footer>
+        <div id="contacts">
+            <svg width="395" height="88" viewBox="0 0 395 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="contacts_V" d="M395 0H0V88H314.5L395 0Z" />
+            </svg>
+        </div>
+        <div id="contacts_info">
+            <svg id="EDC_logo" width="305" height="71" data-name="Лого ЕДЦ" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376.67 207">          
+                    <title>Лого ЕДЦ</title>
+                    <path class="cls-1" d="M86.17,81V56.89c5.9-1.28,9.7-2.07,16.19-3.61,0,1.21,0,1.83,0,3.07-5.07,1.15-7.9,1.74-12.91,2.78.05,2.7.07,4,.11,6.69,4.75-.79,7.28-1.22,12-2.07,0,1.24,0,1.86,0,3.1-4.65.76-7.15,1.15-11.94,1.86.06,3.63.09,5.4.14,9.08,5.27-.52,7.84-.79,12.67-1.31,0,1.25,0,1.85,0,3.11C96.34,80.13,93.07,80.38,86.17,81Z"/>
+                    <path class="cls-1" d="M127,84l-3.23.21V77.52c-6.61.64-9.67,1-16.55,1.57,0,2.54,0,3.8,0,6.17l-3.36.2c0-3.55,0-5.47,0-9.14l1.44-.16A36.75,36.75,0,0,0,109,65.49a70.52,70.52,0,0,0,1.42-14.18c5.75-1.45,8.4-2.16,14.06-3.57,0,9.45,0,15.81,0,26.21l2.42-.28C127,77.78,127,80.29,127,84Zm-5.81-9.65c0-8.9,0-13.66,0-22.55l-7.52,1.83a69.57,69.57,0,0,1-1.56,12.69,36.19,36.19,0,0,1-3.38,9.47C113.82,75.21,116.15,74.93,121.15,74.35Z"/>
+                    <path class="cls-1" d="M151.34,82.5l-3.5.22c0-2.51,0-4,0-7.26-7.51.65-10.43.87-17.59,1.53,0-10.22,0-20.44,0-30.66l3.52-.83c0,9.62,0,16.6,0,27.45l11.36-1.19q0-14.4-.06-28.79l3.65-.8q0,14.61,0,29.21l2.65-.28C151.37,75.6,151.34,78.69,151.34,82.5Z"/>
+                    <text class="cls-2" transform="translate(9.71 152.61)">ЕДИНЫЙ ДИСПЕТЧЕРСКИЙ ЦЕНТР</text>
+                    <path class="cls-1" d="M263.58,126.44c-7.76-.14-15.56-.07-23.76-.07q-.1-8.75,0-17.5c0-1.38-.47-1.82-1.72-2.19q-20.64-6.08-41.23-12.3c-2.78-.83-3.12-1.38-3.12-4.24q.06-24.9.11-49.81V37.86l45.86,38.73c.26-5-.8-9-4.58-11.9-1.36-1.06-2.58-2.31-3.88-3.44q-22-19.12-44.05-38.24l-7.78-6.85c-8.65-7.62-18.06-9.69-29.12-5.65Q99,29.26,47.51,47.44c-3.64,1.29-4.64,3.1-4.61,6.84.18,22.15.09,44.3.09,66.46v5.7H10.73v4.27H269.67v-4.27Zm-188-76.65,55.83-18.16c5.06-1.64,10.12-3.29,15.2-4.87,14.06-4.41,24.77,1.83,33.69,10.72A7,7,0,0,1,182,42c.06,24.65,0,49.3,0,73.94a4.92,4.92,0,0,1-.49,1.27H75.62Z"/>
+                    <path class="cls-1" d="M238.67,81.69Q223.6,69,208.47,56.39c-3.12-2.61-6.27-5.2-9.66-8-.09.65-.14.84-.14,1q0,19,0,38.07c0,2.08,1.06,3.09,2.95,3.67q18.45,5.61,36.89,11.3a9.72,9.72,0,0,0,1.24.2,2.86,2.86,0,0,0,.16-.68c0-6.15,0-12.31-.14-18.46A2.86,2.86,0,0,0,238.67,81.69Z"/>
+            </svg>
+            <span id="contacts_mail"> Контакты </span>
+            <span id="contacts_feedback"> Обратная связь </span>
+        </div>
+
+    </footer>
+</body>
+</html>
